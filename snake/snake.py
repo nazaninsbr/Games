@@ -3,7 +3,7 @@ import sys
 import random 
 import time 
 
-class Snake:
+class Snake():
 	def __init__(self):
 		self.position = [100, 50]
 		self.body = [[100, 50], [90, 50], [80, 50] ]
@@ -87,6 +87,8 @@ foodSpawer = FoodSpawer()
 
 
 while True:
+	import ipdb
+	ipdb.set_trace()
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			gameOver()
