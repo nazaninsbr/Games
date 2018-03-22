@@ -22,14 +22,14 @@ class Snake():
 
 	def move(self, foodPos):
 		if self.direction=="RIGHT":
-			self.position[0] += 10
+			self.position[0] += 1
 		if self.direction=="LEFT":
-			self.position[0] -= 10
+			self.position[0] -= 1
 		if self.direction=="UP":
-			self.position[1] += 10
+			self.position[1] -= 1
 		if self.direction=="DOWN":
-			self.position[1] -= 10
-		self.body.insert(0, self.position)
+			self.position[1] += 1
+		self.body.insert(0, self.position[:])
 		if self.position==foodPos:
 			return 1
 		else:
@@ -87,13 +87,13 @@ foodSpawer = FoodSpawer()
 
 
 while True:
-	import ipdb
-	ipdb.set_trace()
+	#import ipdb
+	#ipdb.set_trace()
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			gameOver()
 
-		elif event.type == pygame.KEYDOWN:
+		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_RIGHT:
 				snake.changeDirTo('RIGHT')
 			if event.key == pygame.K_UP:
